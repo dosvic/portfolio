@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const socials = [
+  {
+    label: 'GitHub',
+    href: 'https://github.com/dosvic'
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/deniz-osmanovic-60a4ba239/'
+  }
+];
+
+const email = 'denizosmanovic@proton.me';
+
+const experience = [
+  {
+    company: 'PaysafeCard',
+    period: '2021 — Present',
+    headline:
+      'Deliver consumer storefronts, compliant identity journeys, and merchant payment integrations that balance polished UX with reliable checkout outcomes.',
+    roles: [
+      {
+        title: 'Software Engineer',
+        period: '2024 — Present',
+        summary:
+          'Extended merchant-initiated payments with SCA-ready flows and backup funding so customers finish checkout by drawing on secondary sources whenever their primary balance falls short.'
+      },
+      {
+        title: 'Junior Software Engineer',
+        period: '2023 — 2024',
+        summary:
+          'Refined the gift card shop and PIN Shop, automated promotions processes, and kept store locator and POS data accurate so customers trust hours, locations and availability.'
+      },
+      {
+        title: 'Engineering Trainee',
+        period: '2021 — 2023',
+        summary:
+          'Delivered smoother KYC identity checks and supported the Croatian kuna to euro currency change across customer flows.'
+      },
+    ]
+  }
+];
+
+const projects = [
+  {
+    name: 'This website',
+    description:
+      "Astro + Tailwind portfolio deployed on a Hetzner VPS with Ansible-provisioned Nginx and Let's Encrypt automation.",
+    link: 'https://denizosmanovic.com'
+  },
+];
+
+const certifications = [
+  {
+    title: 'AWS Certified Solutions Architect – Associate',
+    issuer: 'Amazon Web Services Training and Certification',
+    description:
+      'Earners design secure, resilient, and efficient architectures on AWS aligned to customer requirements.',
+    credentialUrl: 'https://www.credly.com/badges/3b288661-d549-4f8b-b903-526503d564aa/linked_in_profile',
+    badgeImage: 'https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png',
+    // badgeImage: 'https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/linkedin_thumb_image.png'
+  }
+];
+
+const skills = [
+  'JavaScript',
+  'TypeScript',
+  'Angular',
+  'Astro',
+  'Node.js',
+  'SQL',
+  'Java',
+  'Jakarte EE/Java EE',
+  'Python'
+];
+---
+<BaseLayout
+  title="Deniz Osmanovic · Software Engineer"
+  description="Portfolio and selected work by Deniz Osmanovic, a software engineer focused on product-driven web experiences."
+>
+  <main class="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-32 px-6 py-24 sm:px-10">
+    <section id="hero" class="grid gap-8 lg:grid-cols-[2fr_1fr] lg:items-center">
+      <div class="space-y-8">
+        <p class="text-sm uppercase tracking-[0.4em] text-indigo-400">Software Engineer</p>
+        <h1 class="text-4xl font-semibold leading-tight text-slate-50 sm:text-5xl">
+          I build resilient web products that feel effortless to use.
+        </h1>
+        <p class="max-w-2xl text-lg text-slate-300">
+          I’m Deniz Osmanovic, a software engineer shipping consumer and merchant-facing features across complex
+          platforms. I collaborate with product, compliance, and support partners to harden integrations,
+          streamline workflows, and keep systems maintainable long after launch.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href={`mailto:${email}`}
+            class="rounded-full bg-indigo-500 px-6 py-3 text-sm font-semibold uppercase tracking-widest text-slate-950 transition hover:bg-indigo-400"
+          >
+            Contact Me
+          </a>
+          <a
+            href="#projects"
+            class="rounded-full border border-indigo-400 px-6 py-3 text-sm font-semibold uppercase tracking-widest text-indigo-300 transition hover:border-indigo-300 hover:text-indigo-200"
+          >
+            View Work
+          </a>
+        </div>
+      </div>
+      <aside class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.3em] text-indigo-300">Latest focus</h2>
+        <p class="mt-4 text-sm leading-relaxed text-slate-200">
+          Currently focused on refining this site - polishing content and deployment automation.
+        </p>
+      </aside>
+    </section>
+
+    <section id="experience" class="space-y-12">
+      <div class="flex items-center justify-between gap-4">
+        <h2 class="text-3xl font-semibold text-slate-50">Experience</h2>
+      </div>
+      <div class="grid gap-6">
+        {experience.map(({ company, period, headline, roles }) => (
+          <article class="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur transition hover:border-white/10">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
+              <h3 class="text-xl font-semibold text-slate-50">{company}</h3>
+              <span class="text-sm font-medium text-slate-400">{period}</span>
+            </div>
+            <p class="mt-4 text-base text-slate-200">{headline}</p>
+            <div class="mt-6 space-y-6">
+              {roles.map(({ title, period: rolePeriod, summary }) => (
+                <div
+                  class="rounded-2xl border border-white/5 bg-white/5 p-6 backdrop-blur transition hover:border-white/10"
+                >
+                  <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-2">
+                    <h4 class="text-lg font-semibold text-slate-100">{title}</h4>
+                    <span class="text-sm font-medium text-slate-400">{rolePeriod}</span>
+                  </div>
+                  <p class="mt-3 text-sm text-slate-200">{summary}</p>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="projects" class="space-y-12">
+      <div class="flex items-center justify-between gap-4">
+        <h2 class="text-3xl font-semibold text-slate-50">Featured Projects</h2>
+        <span class="text-sm uppercase tracking-[0.3em] text-indigo-400">Selected Work</span>
+      </div>
+      <div class="grid gap-8 lg:grid-cols-2">
+        {projects.map(({ name, description, link }) => (
+          <article
+            class="group flex h-full flex-col justify-between rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur transition hover:border-indigo-400/40"
+          >
+            <div class="space-y-4">
+              <h3 class="text-2xl font-semibold text-slate-50">{name}</h3>
+              <p class="text-base text-slate-200">{description}</p>
+            </div>
+            <a
+              href={link}
+              class="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-indigo-300 transition group-hover:text-indigo-200"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit Project
+              <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="skills" class="space-y-12">
+      <div class="flex items-center justify-between gap-4">
+        <h2 class="text-3xl font-semibold text-slate-50">Capabilities</h2>
+        <span class="text-sm uppercase tracking-[0.3em] text-indigo-400">What I bring</span>
+      </div>
+      <ul class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+        {skills.map((skill) => (
+          <li
+            class="flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-slate-200 backdrop-blur"
+          >
+            {skill}
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section id="certifications" class="space-y-12">
+      <div class="flex items-center justify-between gap-4">
+        <h2 class="text-3xl font-semibold text-slate-50">Certifications</h2>
+        <span class="text-sm uppercase tracking-[0.3em] text-indigo-400">Verified Credentials</span>
+      </div>
+      <div class="grid gap-8 lg:grid-cols-2">
+        {certifications.map(({ title, issuer, description, credentialUrl, badgeImage }) => (
+          <article class="flex gap-6 rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur transition hover:border-indigo-400/40">
+            <div class="flex h-20 w-20 flex-shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-slate-900/40">
+              <img src={badgeImage} alt={`${title} badge`} class="h-full w-full object-contain" loading="lazy" />
+            </div>
+            <div class="space-y-3">
+              <div class="space-y-1">
+                <h3 class="text-xl font-semibold text-slate-50">{title}</h3>
+                <p class="text-xs font-medium uppercase tracking-[0.3em] text-indigo-300">{issuer}</p>
+              </div>
+              <p class="text-sm text-slate-200">{description}</p>
+              <a
+                href={credentialUrl}
+                class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-indigo-300 transition hover:text-indigo-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Credential
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="contact" class="space-y-8 rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-500/20 via-indigo-500/10 to-transparent p-10 text-slate-200">
+      <h2 class="text-3xl font-semibold text-slate-50">Say hello</h2>
+      <p class="text-base">
+        Curious about something you’ve seen here or just want to connect? Drop a note anytime and I’ll get back to you soon.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href={`mailto:${email}`}
+          class="rounded-full bg-indigo-500 px-6 py-3 text-sm font-semibold uppercase tracking-widest text-slate-950 transition hover:bg-indigo-400"
+        >
+          Email me
+        </a>
+        <div class="flex items-center gap-4 text-sm">
+          {socials.map(({ label, href }) => (
+            <a
+              href={href}
+              class="font-semibold uppercase tracking-[0.2em] text-indigo-300 transition hover:text-indigo-200"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <footer class="pb-8 text-xs uppercase tracking-[0.4em] text-slate-500">
+      © {new Date().getFullYear()} Deniz Osmanovic. Crafted with Astro & Tailwind CSS.
+    </footer>
+  </main>
+</BaseLayout>
