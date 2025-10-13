@@ -19,25 +19,25 @@ const experience = [
     company: 'PaysafeCard',
     period: '2021 — Present',
     headline:
-      'Deliver consumer storefronts, compliant identity journeys, and merchant payment integrations that balance polished UX with reliable checkout outcomes.',
+      'Worked on various B2C and B2B products in different teams.',
     roles: [
       {
         title: 'Software Engineer',
         period: '2024 — Present',
         summary:
-          'Extended merchant-initiated payments with SCA-ready flows and backup funding so customers finish checkout by drawing on secondary sources whenever their primary balance falls short.'
+          'Extended merchant-initiated payments with SCA-ready flows and launched Backup funding, enabling automatic use of a secondary source when the primary balance is insufficient, helping more checkouts complete successfully.'
       },
       {
         title: 'Junior Software Engineer',
         period: '2023 — 2024',
         summary:
-          'Refined the gift card shop and PIN Shop, automated promotions processes, and kept store locator and POS data accurate so customers trust hours, locations and availability.'
+          'Integrated a new gift-card vendor into the online gift cards shop and overhauled the product-configuration system - covering availability, denominations, and regionalization - to make launches and catalog management more reliable. Modernized the online PIN shop’s front end and supported the rollout of additional local payment methods to broaden checkout coverage.'
       },
       {
         title: 'Engineering Trainee',
         period: '2021 — 2023',
         summary:
-          'Delivered smoother KYC identity checks and supported the Croatian kuna to euro currency change across customer flows.'
+          'Improved KYC identity-verification by integrating a new provider and streamlining end-to-end checks, reducing friction and accelerating approvals. Also supported Croatia’s kuna-to-euro transition across customer journeys so pricing, balances, and payments remained seamless.'
       },
     ]
   }
@@ -47,7 +47,7 @@ const projects = [
   {
     name: 'This website',
     description:
-      "Astro + Tailwind portfolio deployed on a Hetzner VPS with Ansible-provisioned Nginx and Let's Encrypt automation.",
+      "Astro + Tailwind portfolio deployed on a Hetzner VPS with Ansible-provisioned Nginx and Let's Encrypt.",
     link: 'https://denizosmanovic.com'
   },
 ];
@@ -73,7 +73,8 @@ const skills = [
   'SQL',
   'Java',
   'Jakarte EE/Java EE',
-  'Python'
+  'Python',
+  'AWS'
 ];
 ---
 <BaseLayout
@@ -85,12 +86,10 @@ const skills = [
       <div class="space-y-8">
         <p class="text-sm uppercase tracking-[0.4em] text-indigo-400">Software Engineer</p>
         <h1 class="text-4xl font-semibold leading-tight text-slate-50 sm:text-5xl">
-          I build resilient web products that feel effortless to use.
-        </h1>
-        <p class="max-w-2xl text-lg text-slate-300">
-          I’m Deniz Osmanovic, a software engineer shipping consumer and merchant-facing features across complex
-          platforms. I collaborate with product, compliance, and support partners to harden integrations,
-          streamline workflows, and keep systems maintainable long after launch.
+          Deniz Osmanovic
+          </h1>
+          <p class="max-w-2xl text-lg text-slate-300">
+            Hi, I’m Deniz — I worked across KYC, payments, and e-commerce to cut friction and boost reliability: integrated identity verification and improved online storefronts and product configuration. Expanded payment capabilities with SCA-ready merchant-initiated flows and backup funding that automatically uses a secondary source to help more checkouts succeed.
         </p>
         <div class="flex flex-wrap gap-4">
           <a
@@ -110,7 +109,7 @@ const skills = [
       <aside class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur">
         <h2 class="text-sm font-semibold uppercase tracking-[0.3em] text-indigo-300">Latest focus</h2>
         <p class="mt-4 text-sm leading-relaxed text-slate-200">
-          Currently focused on refining this site - polishing content and deployment automation.
+          Building this website. Adding localization and deployment via github actions. 
         </p>
       </aside>
     </section>
