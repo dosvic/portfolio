@@ -48,4 +48,4 @@ jobs:
 
       - name: Deploy over rsync
         run: |
-          rsync -az --delete --info=progress2 dist/ "$SSH_USER@$SSH_HOST:$TARGET_DIR"
+          rsync -az --delete --no-perms --no-group --omit-dir-times --info=progress2 dist/ "$SSH_USER@$SSH_HOST:$TARGET_DIR"
