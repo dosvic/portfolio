@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { translations } from '../../i18n/translations';
+import { getStaticPaths as getI18nStaticPaths } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return getI18nStaticPaths();
+}
+
+const { lang } = Astro.params;
+const t = translations[lang as keyof typeof translations];
+
+const socials = [
+  {
+    label: t.nav.github,
+    href: 'https://github.com/dosvic'
+  },
+  {
+    label: t.nav.linkedin,
+    href: 'https://www.linkedin.com/in/deniz-osmanovic-60a4ba239/'
+  }
+];
+
+const [github, linkedin] = socials;
+
+const experience = [
+  {
+    company: t.experience.company,
+    period: t.experience.period,
+    summary: t.experience.summary,
+    roles: [
+      {
+        title: t.experience.roles.engineer,
+        period: '2024 — ' + (lang === 'de' ? 'Heute' : 'Present')
+      },
+      {
+        title: t.experience.roles.junior,
+        period: '2023 — 2024'
+      },
+      {
+        title: t.experience.roles.trainee,
+        period: '2021 — 2023'
+      },
+    ]
+  }
+];
+
+const projects = [
+  {
+    name: t.projects.thisWebsite.name,
+    description: t.projects.thisWebsite.description,
+    link: 'https://denizosmanovic.com'
+  },
+];
+
+const certifications = [
+  {
+    title: t.certifications.aws.title,
+    issuer: t.certifications.aws.issuer,
+    description: t.certifications.aws.description,
+    credentialUrl: 'https://www.credly.com/badges/3b288661-d549-4f8b-b903-526503d564aa/linked_in_profile',
+  },
+];
+
+const skills = [
+  'JavaScript',
+  'TypeScript',
+  'Angular',
+  'Astro',
+  'Node.js',
+  'SQL',
+  'Java',
+  'Jakarte EE/Java EE',
+  'Python',
+  'AWS'
+];
+
+const currentYear = new Date().getFullYear();
+const copyright = t.footer.copyright.replace('{year}', currentYear.toString());
+---
+<BaseLayout
+  title={t.meta.title}
+  description={t.meta.description}
+  lang={lang}
+>
+  <main class="mx-auto flex min-h-screen w-full max-w-3xl flex-col gap-16 px-6 py-16 sm:px-8">
+    <section id="hero" class="space-y-6">
+      <p class="text-sm text-white/60">{t.hero.subtitle}</p>
+      <h1 class="text-4xl font-semibold leading-tight sm:text-5xl">Deniz Osmanovic</h1>
+      <p class="max-w-3xl text-lg text-white/80">
+        {t.hero.bio}
+      </p>
+      <div class="flex flex-wrap gap-4 text-sm">
+        <a
+          href={github.href}
+          class="underline decoration-white/40 underline-offset-4 transition hover:decoration-white"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {github.label}
+        </a>
+        <a
+          href={linkedin.href}
+          class="underline decoration-white/40 underline-offset-4 transition hover:decoration-white"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {linkedin.label}
+        </a>
+      </div>
+    </section>
+
+    <section id="experience" class="space-y-6">
+      <h2 class="text-2xl font-semibold text-white">{t.sections.experience}</h2>
+      <div class="space-y-8 border-t border-white/10 pt-6">
+        {experience.map(({ company, period, summary, roles }) => (
+          <article class="space-y-3">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-lg font-semibold text-white">{company}</h3>
+              <span class="text-sm text-white/60">{period}</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              {roles.map(({ title, period: rolePeriod }) => (
+                <span class="rounded-full border border-white/15 bg-white/[0.04] px-3 py-1 text-xs text-white/80">
+                  {title} · {rolePeriod}
+                </span>
+              ))}
+            </div>
+            <p class="text-white/80">{summary}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="projects" class="space-y-6">
+      <div class="flex items-baseline justify-between gap-2">
+        <h2 class="text-2xl font-semibold text-white">{t.sections.projects}</h2>
+        <span class="text-sm text-white/60">{t.projects.selectedWork}</span>
+      </div>
+      <div class="space-y-6 border-t border-white/10 pt-6">
+        {projects.map(({ name, description, link }) => (
+          <article class="space-y-2">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-lg font-semibold text-white">{name}</h3>
+              <a
+                href={link}
+                class="text-sm underline decoration-white/40 underline-offset-4 transition hover:decoration-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t.projects.openLink}
+              </a>
+            </div>
+            <p class="text-white/75">{description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="skills" class="space-y-4">
+      <h2 class="text-2xl font-semibold text-white">{t.sections.skills}</h2>
+      <div class="border-t border-white/10 pt-4">
+        <ul class="flex flex-wrap gap-3">
+          {skills.map((skill) => (
+            <li class="rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-sm text-white/80">{skill}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section id="certifications" class="space-y-4">
+      <h2 class="text-2xl font-semibold text-white">{t.sections.certifications}</h2>
+      <div class="space-y-4 border-t border-white/10 pt-4">
+        {certifications.map(({ title, issuer, description, credentialUrl }) => (
+          <article class="space-y-2">
+            <div class="space-y-1">
+              <h3 class="text-lg font-semibold text-white">{title}</h3>
+              <p class="text-sm text-white/60">{issuer}</p>
+            </div>
+            <p class="text-sm text-white/70">{description}</p>
+            <a
+              href={credentialUrl}
+              class="text-sm underline decoration-white/40 underline-offset-4 transition hover:decoration-white"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t.certifications.credentialLink}
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <footer class="pb-8 text-xs text-white/40">
+      {copyright}
+    </footer>
+  </main>
+</BaseLayout>

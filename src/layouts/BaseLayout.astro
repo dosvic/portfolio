@@ -1,12 +1,15 @@
 ---
 import '../styles/global.css';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+
 const {
   title = 'Deniz Osmanovic · Portfolio',
-  description = 'Personal portfolio of Deniz Osmanovic.'
+  description = 'Personal portfolio of Deniz Osmanovic.',
+  lang = 'en'
 } = Astro.props;
 ---
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,6 +21,9 @@ const {
     <title>{title}</title>
   </head>
   <body class="bg-black text-white antialiased">
+    <div class="fixed top-0 right-0 z-50 p-6 sm:p-8">
+      <LanguageSwitcher currentLang={lang} />
+    </div>
     <slot />
   </body>
 </html>

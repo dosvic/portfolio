@@ -2,14 +2,7 @@
 
 Personal portfolio built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com). The site highlights featured work, capabilities, and ways to get in touch.
 
-## ✨ Features
-
-- Dark-mode aesthetic with smooth scroll navigation
-- Hero, experience, projects, skills, and contact sections
-- Reusable base layout that wires in global Tailwind styles
-- Production-ready Astro build configuration
-
-## 🚀 Getting Started
+## Getting Started
 
 Install dependencies:
 
