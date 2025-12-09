@@ -1,5 +1,14 @@
 ---
 import { defaultLang } from '../i18n/utils';
-
-return Astro.redirect(`/${defaultLang}/`);
 ---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="refresh" content={`0;url=/${defaultLang}/`}>
+  <script is:inline>
+    window.location.href = '/en/';
+  </script>
+</head>
+<body>
+</body>
+</html>
