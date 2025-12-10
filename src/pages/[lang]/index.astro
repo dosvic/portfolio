@@ -62,6 +62,19 @@ const certifications = [
   },
 ];
 
+const education = [
+  {
+    degree: t.education.university.degree,
+    institution: t.education.university.institution,
+    period: t.education.university.period,
+  },
+  {
+    degree: t.education.htl.degree,
+    institution: t.education.htl.institution,
+    period: t.education.htl.period,
+  },
+];
+
 const skills = [
   'JavaScript',
   'TypeScript',
@@ -186,6 +199,21 @@ const copyright = t.footer.copyright.replace('{year}', currentYear.toString());
             >
               {t.certifications.credentialLink}
             </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="education" class="space-y-4">
+      <h2 class="text-2xl font-semibold text-white">{t.sections.education}</h2>
+      <div class="space-y-6 border-t border-white/10 pt-4">
+        {education.map(({ degree, institution, period }) => (
+          <article class="space-y-1">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-lg font-semibold text-white">{degree}</h3>
+              <span class="text-sm text-white/60">{period}</span>
+            </div>
+            <p class="text-white/80 text-sm">{institution}</p>
           </article>
         ))}
       </div>

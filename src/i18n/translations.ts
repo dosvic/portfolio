@@ -13,6 +13,7 @@ export const translations = {
       projects: 'Projects',
       skills: 'Skills',
       certifications: 'Certifications',
+      education: 'Education',
     },
     experience: {
       company: 'PaysafeCard',
@@ -40,6 +41,18 @@ export const translations = {
       },
       credentialLink: 'Credential',
     },
+    education: {
+      university: {
+        degree: 'BSc Computer Science',
+        institution: 'University of Applied Sciences Technikum Wien',
+        period: '2021 — 2023',
+      },
+      htl: {
+        degree: 'Upper Secondary Technical School',
+        institution: 'HTL Donaustadt',
+        period: '2015 — 2020',
+      },
+    },
     footer: {
       copyright: '© {year} Deniz Osmanovic.',
     },
@@ -62,6 +75,7 @@ export const translations = {
       projects: 'Projekte',
       skills: 'Skills',
       certifications: 'Zertifizierungen',
+      education: 'Ausbildung',
     },
     experience: {
       company: 'PaysafeCard',
@@ -88,6 +102,18 @@ export const translations = {
         description: 'Inhaber entwerfen sichere, belastbare und effiziente Architekturen auf AWS, die an Kundenanforderungen ausgerichtet sind.',
       },
       credentialLink: 'Zertifikat',
+    },
+    education: {
+      university: {
+        degree: 'BSc Informatik',
+        institution: 'Fachhochschule Technikum Wien',
+        period: '2021 — 2023',
+      },
+      htl: {
+        degree: 'Höhere Technische Lehranstalt',
+        institution: 'HTL Donaustadt',
+        period: '2015 — 2020',
+      },
     },
     footer: {
       copyright: '© {year} Deniz Osmanovic.',
