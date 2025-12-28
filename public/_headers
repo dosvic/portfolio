@@ -1,0 +1,57 @@
+# Security headers for all pages
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: same-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  X-XSS-Protection: 1; mode=block
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+
+# Cache control for HTML pages (short cache)
+/index.html
+  Cache-Control: public, max-age=300, must-revalidate
+
+/*/index.html
+  Cache-Control: public, max-age=300, must-revalidate
+
+# Aggressive caching for versioned assets
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Static assets
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images
+/*.jpg
+  Cache-Control: public, max-age=2592000
+
+/*.jpeg
+  Cache-Control: public, max-age=2592000
+
+/*.png
+  Cache-Control: public, max-age=2592000
+
+/*.gif
+  Cache-Control: public, max-age=2592000
+
+/*.svg
+  Cache-Control: public, max-age=2592000
+
+/*.webp
+  Cache-Control: public, max-age=2592000
+
+# Content Security Policy
+/*
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-+KIn1AC2sbw/g4OdBXHj7G+dJaAhwR1VxpSH63BhbSk='; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
