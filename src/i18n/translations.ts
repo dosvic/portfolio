@@ -29,7 +29,7 @@ export const translations = {
       selectedWork: 'Selected work',
       thisWebsite: {
         name: 'This website',
-        description: "Astro + Tailwind portfolio deployed on a Hetzner VPS with Ansible-provisioned Nginx and Let's Encrypt.",
+        description: "Astro + Tailwind portfolio deployed on Cloudflare Workers",
       },
       openLink: 'Open',
     },
@@ -91,7 +91,7 @@ export const translations = {
       selectedWork: 'Ausgewählte Arbeiten',
       thisWebsite: {
         name: 'Diese Website',
-        description: 'Astro + Tailwind Portfolio, bereitgestellt auf einem Hetzner VPS mit Ansible-provisioniertem Nginx und Let\'s Encrypt.',
+        description: 'Astro + Tailwind Portfolio, bereitgestellt auf Cloudflare Workers',
       },
       openLink: 'Öffnen',
     },
