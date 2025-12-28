@@ -7,6 +7,20 @@ const {
   description = 'Personal portfolio of Deniz Osmanovic.',
   lang = 'en'
 } = Astro.props;
+
+const siteUrl = 'https://denizosmanovic.com';
+const canonicalUrl = `${siteUrl}/${lang}/`;
+const ogLocale = lang === 'de' ? 'de_DE' : 'en_US';
+const altLocale = lang === 'de' ? 'en_US' : 'de_DE';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Deniz Osmanovic',
+  url: siteUrl,
+  jobTitle: 'Software Engineer',
+  sameAs: []
+};
 ---
 <!DOCTYPE html>
 <html lang={lang} class="scroll-smooth">
@@ -14,10 +28,33 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Canonical & Hreflang -->
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={`${siteUrl}/en/`} />
+    <link rel="alternate" hreflang="de" href={`${siteUrl}/de/`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/en/`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta name="generator" content={Astro.generator} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={altLocale} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
     <title>{title}</title>
   </head>
   <body class="bg-black text-white antialiased">
