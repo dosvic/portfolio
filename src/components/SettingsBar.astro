@@ -1,0 +1,184 @@
+---
+interface Props {
+  currentLang: string;
+}
+
+const { currentLang } = Astro.props;
+---
+
+<div class="settings-bar">
+  <div class="flex items-center gap-3">
+    <!-- Theme Toggle -->
+    <button
+      id="theme-toggle"
+      class="theme-toggle"
+      aria-label="Toggle theme"
+    >
+      <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+
+    <div class="divider"></div>
+
+    <!-- Language Toggle -->
+    <div class="flex items-center gap-2">
+      <span class={`lang-label ${currentLang === 'en' ? 'active' : ''}`}>EN</span>
+      <button
+        id="lang-toggle"
+        class="toggle-switch"
+        role="switch"
+        aria-checked={currentLang === 'de'}
+        aria-label="Switch language"
+      >
+        <span class="toggle-slider" data-lang={currentLang}></span>
+      </button>
+      <span class={`lang-label ${currentLang === 'de' ? 'active' : ''}`}>DE</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .settings-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: var(--color-surface);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border);
+    border-radius: 9999px;
+    padding: 8px 16px;
+  }
+
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-60);
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+
+  .theme-toggle:hover {
+    color: var(--color-text);
+    background: var(--color-surface);
+  }
+
+  /* Show sun in dark mode, moon in light mode */
+  .sun-icon {
+    display: block;
+  }
+
+  .moon-icon {
+    display: none;
+  }
+
+  :global(.light) .sun-icon {
+    display: none;
+  }
+
+  :global(.light) .moon-icon {
+    display: block;
+  }
+
+  .divider {
+    width: 1px;
+    height: 20px;
+    background: var(--color-border-20);
+  }
+
+  .lang-label {
+    font-size: 0.875rem;
+    color: var(--color-text-40);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .lang-label.active {
+    color: var(--color-text-80);
+  }
+
+  .toggle-switch {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border-20);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .toggle-switch:hover {
+    background-color: var(--color-border);
+  }
+
+  .toggle-slider {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: var(--color-text);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+
+  .toggle-slider[data-lang="de"] {
+    transform: translateX(24px);
+  }
+</style>
+
+<script>
+  function initSettingsBar() {
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const isLight = document.documentElement.classList.toggle('light');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      });
+    }
+
+    // Language toggle
+    const langToggle = document.getElementById('lang-toggle');
+    const slider = langToggle?.querySelector('.toggle-slider');
+
+    if (!langToggle || !slider) return;
+
+    langToggle.addEventListener('click', () => {
+      const currentLang = slider.getAttribute('data-lang');
+      const newLang = currentLang === 'en' ? 'de' : 'en';
+
+      localStorage.setItem('preferredLang', newLang);
+
+      const currentPath = window.location.pathname;
+      const pathWithoutLang = currentPath.replace(/^\/(en|de)(\/|$)/, '/');
+      const pathPart = pathWithoutLang === '/' ? '/' : pathWithoutLang;
+      const newPath = `/${newLang}${pathPart}`;
+
+      window.location.pathname = newPath;
+    });
+  }
+
+  initSettingsBar();
+
+  document.addEventListener('astro:page-load', initSettingsBar);
+</script>

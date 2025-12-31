@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import SettingsBar from '../components/SettingsBar.astro';
 
 const {
   title = 'Deniz Osmanovic · Portfolio',
@@ -59,10 +59,18 @@ const jsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <title>{title}</title>
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        if (stored === 'light' || (!stored && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+          document.documentElement.classList.add('light');
+        }
+      })();
+    </script>
   </head>
-  <body class="bg-black text-white antialiased">
+  <body class="antialiased">
     <div class="fixed top-0 right-0 z-50 p-6 sm:p-8">
-      <LanguageSwitcher currentLang={lang} />
+      <SettingsBar currentLang={lang} />
     </div>
     <slot />
   </body>

@@ -5,11 +5,59 @@
 }
 
 @layer base {
-  html {
+  :root {
+    /* Dark mode (default) */
+    --color-bg: #000000;
+    --color-text: #ffffff;
+    --color-text-80: rgba(255, 255, 255, 0.8);
+    --color-text-75: rgba(255, 255, 255, 0.75);
+    --color-text-70: rgba(255, 255, 255, 0.7);
+    --color-text-60: rgba(255, 255, 255, 0.6);
+    --color-text-40: rgba(255, 255, 255, 0.4);
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-border-15: rgba(255, 255, 255, 0.15);
+    --color-border-20: rgba(255, 255, 255, 0.2);
+    --color-surface: rgba(255, 255, 255, 0.04);
+    --color-decoration: rgba(255, 255, 255, 0.4);
+    --color-decoration-hover: #ffffff;
     color-scheme: dark;
+  }
+
+  :root.light {
+    /* Light mode (warm cream) */
+    --color-bg: #FAF8F5;
+    --color-text: #1a1a1a;
+    --color-text-80: rgba(26, 26, 26, 0.8);
+    --color-text-75: rgba(26, 26, 26, 0.75);
+    --color-text-70: rgba(26, 26, 26, 0.7);
+    --color-text-60: rgba(26, 26, 26, 0.6);
+    --color-text-40: rgba(26, 26, 26, 0.4);
+    --color-border: rgba(26, 26, 26, 0.1);
+    --color-border-15: rgba(26, 26, 26, 0.15);
+    --color-border-20: rgba(26, 26, 26, 0.2);
+    --color-surface: rgba(26, 26, 26, 0.04);
+    --color-decoration: rgba(26, 26, 26, 0.4);
+    --color-decoration-hover: #1a1a1a;
+    color-scheme: light;
   }
 
   body {
     font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
   }
+}
+
+@layer utilities {
+  .text-primary { color: var(--color-text); }
+  .text-muted { color: var(--color-text-80); }
+  .text-muted-75 { color: var(--color-text-75); }
+  .text-muted-70 { color: var(--color-text-70); }
+  .text-subtle { color: var(--color-text-60); }
+  .text-faint { color: var(--color-text-40); }
+  .border-theme { border-color: var(--color-border); }
+  .border-theme-15 { border-color: var(--color-border-15); }
+  .bg-surface { background-color: var(--color-surface); }
+  .decoration-theme { text-decoration-color: var(--color-decoration); }
+  .hover\:decoration-theme:hover { text-decoration-color: var(--color-decoration-hover); }
 }
