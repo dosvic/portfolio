@@ -18,7 +18,7 @@ export const translations = {
     experience: {
       company: 'PaysafeCard',
       period: '2021 — Present',
-      summary: 'Full-stack work across payments, KYC, and digital storefronts to improve reliability and launch new payment options.',
+      summary: 'At Paysafecard, I build and maintain payments infrastructure, including merchant-facing REST and SOAP APIs that process millions of transactions daily with high availability. I also work full stack on customer-facing online shops for purchasing paysafecards and gift cards.',
       roles: {
         engineer: 'Software Engineer',
         junior: 'Junior Software Engineer',
@@ -80,7 +80,7 @@ export const translations = {
     experience: {
       company: 'PaysafeCard',
       period: '2021 — Heute',
-      summary: 'Full-Stack-Arbeit über Zahlungen, KYC und E-Commerce, um die Zuverlässigkeit zu verbessern und neue Zahlungsoptionen einzuführen.',
+      summary: 'Bei Paysafecard entwickle und pflege ich die Zahlungsinfrastruktur, einschließlich REST- und SOAP-APIs für Partner, die täglich Millionen von Transaktionen mit hoher Verfügbarkeit verarbeiten. Zusätzlich arbeite ich Fullstack an B2C Online-Shops für den Kauf von Paysafecards und Geschenkkarten.',
       roles: {
         engineer: 'Software Entwickler',
         junior: 'Junior Software Entwickler',
