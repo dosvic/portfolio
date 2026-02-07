@@ -1,0 +1,12 @@
+[
+  {
+    "name": "This website",
+    "description": "Astro + Tailwind portfolio deployed on Cloudflare Workers",
+    "link": "https://denizosmanovic.com"
+  },
+  {
+    "name": "L0 Chat - A Local-first AI Chat",
+    "description": "Lightweight React/TypeScript chat app with real-time streaming, optional web search, model favorites, and persistent local chat history.",
+    "link": "https://github.com/dosvic/l0-chat"
+  }
+]
