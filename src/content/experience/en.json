@@ -1,0 +1,21 @@
+[
+  {
+    "company": "PaysafeCard",
+    "period": "2021 — Present",
+    "summary": "At Paysafecard, I build and maintain payments infrastructure, including merchant-facing REST and SOAP APIs that process millions of transactions daily with high availability. I also work full stack on customer-facing online shops for purchasing paysafecards and gift cards.",
+    "roles": [
+      {
+        "title": "Software Engineer",
+        "period": "2024 — Present"
+      },
+      {
+        "title": "Junior Software Engineer",
+        "period": "2023 — 2024"
+      },
+      {
+        "title": "Engineering Trainee",
+        "period": "2021 — 2023"
+      }
+    ]
+  }
+]

@@ -15,43 +15,12 @@ export const translations = {
       certifications: 'Certifications',
       education: 'Education',
     },
-    experience: {
-      company: 'PaysafeCard',
-      period: '2021 — Present',
-      summary: 'At Paysafecard, I build and maintain payments infrastructure, including merchant-facing REST and SOAP APIs that process millions of transactions daily with high availability. I also work full stack on customer-facing online shops for purchasing paysafecards and gift cards.',
-      roles: {
-        engineer: 'Software Engineer',
-        junior: 'Junior Software Engineer',
-        trainee: 'Engineering Trainee',
-      },
-    },
     projects: {
       selectedWork: 'Selected work',
-      thisWebsite: {
-        name: 'This website',
-        description: "Astro + Tailwind portfolio deployed on Cloudflare Workers",
-      },
       openLink: 'Open',
     },
     certifications: {
-      aws: {
-        title: 'AWS Certified Solutions Architect – Associate',
-        issuer: 'Amazon Web Services Training and Certification',
-        description: 'Earners design secure, resilient, and efficient architectures on AWS aligned to customer requirements.',
-      },
       credentialLink: 'Credential',
-    },
-    education: {
-      university: {
-        degree: 'BSc Computer Science',
-        institution: 'University of Applied Sciences Technikum Wien',
-        period: '2021 — 2023',
-      },
-      htl: {
-        degree: 'Upper Secondary Technical School',
-        institution: 'HTL Donaustadt',
-        period: '2015 — 2020',
-      },
     },
     footer: {
       copyright: '© {year} Deniz Osmanovic.',
@@ -77,43 +46,12 @@ export const translations = {
       certifications: 'Zertifizierungen',
       education: 'Ausbildung',
     },
-    experience: {
-      company: 'PaysafeCard',
-      period: '2021 — Heute',
-      summary: 'Bei Paysafecard entwickle und pflege ich die Zahlungsinfrastruktur, einschließlich REST- und SOAP-APIs für Partner, die täglich Millionen von Transaktionen mit hoher Verfügbarkeit verarbeiten. Zusätzlich arbeite ich Fullstack an B2C Online-Shops für den Kauf von Paysafecards und Geschenkkarten.',
-      roles: {
-        engineer: 'Software Entwickler',
-        junior: 'Junior Software Entwickler',
-        trainee: 'Engineering-Trainee',
-      },
-    },
     projects: {
       selectedWork: 'Ausgewählte Arbeiten',
-      thisWebsite: {
-        name: 'Diese Website',
-        description: 'Astro + Tailwind Portfolio, bereitgestellt auf Cloudflare Workers',
-      },
       openLink: 'Öffnen',
     },
     certifications: {
-      aws: {
-        title: 'AWS Certified Solutions Architect – Associate',
-        issuer: 'Amazon Web Services Training and Certification',
-        description: 'Inhaber entwerfen sichere, belastbare und effiziente Architekturen auf AWS, die an Kundenanforderungen ausgerichtet sind.',
-      },
       credentialLink: 'Zertifikat',
-    },
-    education: {
-      university: {
-        degree: 'BSc Informatik',
-        institution: 'Fachhochschule Technikum Wien',
-        period: '2021 — 2023',
-      },
-      htl: {
-        degree: 'Höhere Technische Lehranstalt',
-        institution: 'HTL Donaustadt',
-        period: '2015 — 2020',
-      },
     },
     footer: {
       copyright: '© {year} Deniz Osmanovic.',
