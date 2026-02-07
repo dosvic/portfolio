@@ -1,0 +1,21 @@
+[
+  {
+    "company": "PaysafeCard",
+    "period": "2021 — Heute",
+    "summary": "Bei Paysafecard entwickle und pflege ich die Zahlungsinfrastruktur, einschließlich REST- und SOAP-APIs für Partner, die täglich Millionen von Transaktionen mit hoher Verfügbarkeit verarbeiten. Zusätzlich arbeite ich Fullstack an B2C Online-Shops für den Kauf von Paysafecards und Geschenkkarten.",
+    "roles": [
+      {
+        "title": "Software Entwickler",
+        "period": "2024 — Heute"
+      },
+      {
+        "title": "Junior Software Entwickler",
+        "period": "2023 — 2024"
+      },
+      {
+        "title": "Engineering-Trainee",
+        "period": "2021 — 2023"
+      }
+    ]
+  }
+]

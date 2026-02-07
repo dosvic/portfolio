@@ -54,4 +54,4 @@
 
 # Content Security Policy
 /*
-  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-+KIn1AC2sbw/g4OdBXHj7G+dJaAhwR1VxpSH63BhbSk=' 'sha256-zF1mBidki+bIf+MAHmRzRkYCaplFkVhvqYaAfmKaPfM='; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-vH6jRmYgYRPASL4DAgJbErw83xqZXzlN8eb0TOnhwcY=' 'sha256-4LWE/aofzSVnFnhxnGejwA+wrOAFUydh81RknVw3WEQ=' 'sha256-D4tRdcwqGKVOiXqFLMJoPwVa4IKvx/gKclIEatHY7cs='; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'

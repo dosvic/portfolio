@@ -1,6 +1,7 @@
 ---
+import { getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { translations } from '../../i18n/translations';
+import { translations, type Language } from '../../i18n/translations';
 import { getStaticPaths as getI18nStaticPaths } from '../../i18n/utils';
 
 export function getStaticPaths() {
@@ -8,72 +9,23 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.params;
-const t = translations[lang as keyof typeof translations];
+const t = translations[lang as Language];
+
+const experienceEntry = await getEntry('experience', lang as Language);
+const projectsEntry = await getEntry('projects', lang as Language);
+const certificationsEntry = await getEntry('certifications', lang as Language);
+const educationEntry = await getEntry('education', lang as Language);
+
+const experience = experienceEntry?.data ?? [];
+const projects = projectsEntry?.data ?? [];
+const certifications = certificationsEntry?.data ?? [];
+const education = educationEntry?.data ?? [];
 
 const socials = [
-  {
-    label: t.nav.github,
-    href: 'https://github.com/dosvic'
-  },
-  {
-    label: t.nav.linkedin,
-    href: 'https://www.linkedin.com/in/deniz-osmanovic-60a4ba239/'
-  }
+  { label: t.nav.github, href: 'https://github.com/dosvic' },
+  { label: t.nav.linkedin, href: 'https://www.linkedin.com/in/deniz-osmanovic-60a4ba239/' }
 ];
-
 const [github, linkedin] = socials;
-
-const experience = [
-  {
-    company: t.experience.company,
-    period: t.experience.period,
-    summary: t.experience.summary,
-    roles: [
-      {
-        title: t.experience.roles.engineer,
-        period: '2024 — ' + (lang === 'de' ? 'Heute' : 'Present')
-      },
-      {
-        title: t.experience.roles.junior,
-        period: '2023 — 2024'
-      },
-      {
-        title: t.experience.roles.trainee,
-        period: '2021 — 2023'
-      },
-    ]
-  }
-];
-
-const projects = [
-  {
-    name: t.projects.thisWebsite.name,
-    description: t.projects.thisWebsite.description,
-    link: 'https://denizosmanovic.com'
-  },
-];
-
-const certifications = [
-  {
-    title: t.certifications.aws.title,
-    issuer: t.certifications.aws.issuer,
-    description: t.certifications.aws.description,
-    credentialUrl: 'https://www.credly.com/badges/3b288661-d549-4f8b-b903-526503d564aa/linked_in_profile',
-  },
-];
-
-const education = [
-  {
-    degree: t.education.university.degree,
-    institution: t.education.university.institution,
-    period: t.education.university.period,
-  },
-  {
-    degree: t.education.htl.degree,
-    institution: t.education.htl.institution,
-    period: t.education.htl.period,
-  },
-];
 
 const skills = [
   'JavaScript',
