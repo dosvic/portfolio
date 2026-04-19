@@ -1,12 +1,17 @@
 export const translations = {
   en: {
     hero: {
-      subtitle: 'Software engineer',
+      subtitle: 'software engineer · vienna',
       bio: 'Fintech full-stack engineer with experience across KYC, payments, and digital storefronts. I currently ship production work with Jakarta EE, Oracle/Postgres, Angular, Kafka, and AWS.',
+      prompt: 'whoami',
+      linksPrompt: 'links',
     },
     nav: {
       github: 'GitHub',
       linkedin: 'LinkedIn',
+      location: 'Vienna',
+      system: 'DENIZ.OSMANOVIC.SYS',
+      lang: 'LANG',
     },
     sections: {
       experience: 'Experience',
@@ -16,14 +21,17 @@ export const translations = {
       education: 'Education',
     },
     projects: {
-      selectedWork: 'Selected work',
-      openLink: 'Open',
+      selectedWork: 'selected work',
+      openLink: 'open',
     },
     certifications: {
-      credentialLink: 'Credential',
+      credentialLink: 'credential',
     },
     footer: {
       copyright: '© {year} Deniz Osmanovic.',
+      eof: 'EOF',
+      uptimeLabel: 'uptime',
+      waiting: 'awaiting input',
     },
     meta: {
       title: 'Deniz Osmanovic · Software Engineer',
@@ -32,12 +40,17 @@ export const translations = {
   },
   de: {
     hero: {
-      subtitle: 'Software Entwickler',
+      subtitle: 'software entwickler · wien',
       bio: 'Fintech Full-Stack Entwickler mit Erfahrung in KYC, Zahlungsabwicklung und E-Commerce. Ich entwickle derzeit Produktionslösungen mit Jakarta EE, Oracle/Postgres, Angular, Kafka und AWS.',
+      prompt: 'whoami',
+      linksPrompt: 'links',
     },
     nav: {
       github: 'GitHub',
       linkedin: 'LinkedIn',
+      location: 'Wien',
+      system: 'DENIZ.OSMANOVIC.SYS',
+      lang: 'SPR',
     },
     sections: {
       experience: 'Berufserfahrung',
@@ -47,14 +60,17 @@ export const translations = {
       education: 'Ausbildung',
     },
     projects: {
-      selectedWork: 'Ausgewählte Arbeiten',
-      openLink: 'Öffnen',
+      selectedWork: 'ausgewählte arbeiten',
+      openLink: 'öffnen',
     },
     certifications: {
-      credentialLink: 'Zertifikat',
+      credentialLink: 'zertifikat',
     },
     footer: {
       copyright: '© {year} Deniz Osmanovic.',
+      eof: 'EOF',
+      uptimeLabel: 'uptime',
+      waiting: 'warte auf eingabe',
     },
     meta: {
       title: 'Deniz Osmanovic · Software Entwickler',

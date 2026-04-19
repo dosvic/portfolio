@@ -1,11 +1,18 @@
 ---
 import '../styles/global.css';
-import SettingsBar from '../components/SettingsBar.astro';
+import TerminalHeader from '../components/TerminalHeader.astro';
+import type { Language } from '../i18n/translations';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: Language;
+}
 
 const {
   title = 'Deniz Osmanovic · Portfolio',
   description = 'Personal portfolio of Deniz Osmanovic.',
-  lang = 'en'
+  lang = 'en' as Language
 } = Astro.props;
 
 const siteUrl = 'https://denizosmanovic.com';
@@ -52,6 +59,8 @@ const jsonLd = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
+    <meta name="theme-color" content="#0e0a05" />
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -59,19 +68,10 @@ const jsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <title>{title}</title>
-    <script is:inline>
-      (function() {
-        const stored = localStorage.getItem('theme');
-        if (stored === 'light' || (!stored && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-          document.documentElement.classList.add('light');
-        }
-      })();
-    </script>
   </head>
   <body class="antialiased">
-    <div class="fixed top-0 right-0 z-50 p-6 sm:p-8">
-      <SettingsBar currentLang={lang} />
-    </div>
+    <div class="crt-overlay" aria-hidden="true"></div>
+    <TerminalHeader currentLang={lang} />
     <slot />
   </body>
 </html>

@@ -43,23 +43,3 @@ Deploy to Cloudflare Workers (requires build first):
 npm ci && npm run build
 wrangler deploy
 ```
-
-## Project Structure
-
-```
-/
-├── public/
-│   ├── _headers         # Cloudflare headers configuration
-│   ├── _redirects       # Cloudflare redirects configuration
-│   ├── favicon.svg
-│   └── robots.txt
-├── src/
-│   ├── components/      # Reusable Astro components
-│   ├── i18n/            # Internationalization utilities and translations
-│   ├── layouts/         # Shared Astro layouts
-│   ├── pages/           # Route files with dynamic [lang] support
-│   └── styles/          # Global CSS
-├── astro.config.mjs     # Astro configuration
-├── tsconfig.json
-└── wrangler.toml        # Cloudflare Workers configuration
-```

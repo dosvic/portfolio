@@ -25,7 +25,6 @@ const socials = [
   { label: t.nav.github, href: 'https://github.com/dosvic' },
   { label: t.nav.linkedin, href: 'https://www.linkedin.com/in/deniz-osmanovic-60a4ba239/' }
 ];
-const [github, linkedin] = socials;
 
 const skills = [
   'JavaScript',
@@ -35,7 +34,7 @@ const skills = [
   'Node.js',
   'SQL',
   'Java',
-  'Jakarte EE/Java EE',
+  'Jakarta EE',
   'Spring Boot',
   'Python',
   'AWS',
@@ -44,116 +43,120 @@ const skills = [
   'Jenkins'
 ];
 
-const currentYear = new Date().getFullYear();
+const now = new Date();
+const currentYear = now.getFullYear();
 const copyright = t.footer.copyright.replace('{year}', currentYear.toString());
+
+const careerStart = new Date('2021-07-01');
+const months = Math.max(
+  0,
+  (now.getFullYear() - careerStart.getFullYear()) * 12 + (now.getMonth() - careerStart.getMonth())
+);
+const uptimeYears = Math.floor(months / 12);
+const uptimeMonths = months % 12;
+const uptime = `${uptimeYears}y ${uptimeMonths}m`;
 ---
 <BaseLayout
   title={t.meta.title}
   description={t.meta.description}
-  lang={lang}
+  lang={lang as Language}
 >
-  <main class="mx-auto flex min-h-screen w-full max-w-3xl flex-col gap-16 px-6 py-16 sm:px-8">
-    <section id="hero" class="space-y-6">
-      <p class="text-sm text-subtle">{t.hero.subtitle}</p>
-      <h1 class="text-4xl font-semibold leading-tight sm:text-5xl">Deniz Osmanovic</h1>
-      <p class="max-w-3xl text-lg text-muted">
+  <main class="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-3xl flex-col gap-14 px-6 py-12 sm:px-8 sm:py-16">
+
+    <section id="hero" class="space-y-4">
+      <p class="prompt-line">{t.hero.prompt}</p>
+      <h1 class="text-bright text-3xl font-semibold leading-tight sm:text-5xl">
+        Deniz Osmanovic<span class="caret" aria-hidden="true"></span>
+      </h1>
+      <p class="text-subtle text-sm tracking-wider uppercase">{t.hero.subtitle}</p>
+      <p class="max-w-3xl text-base leading-relaxed text-primary pt-2">
         {t.hero.bio}
       </p>
-      <div class="flex flex-wrap gap-4 text-sm">
-        <a
-          href={github.href}
-          class="underline decoration-theme underline-offset-4 transition hover:decoration-theme"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {github.label}
-        </a>
-        <a
-          href={linkedin.href}
-          class="underline decoration-theme underline-offset-4 transition hover:decoration-theme"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {linkedin.label}
-        </a>
+
+      <p class="prompt-line pt-4">{t.hero.linksPrompt}</p>
+      <div class="flex flex-wrap gap-3 text-sm">
+        {socials.map(({ label, href }) => (
+          <a
+            href={href}
+            class="term-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {label}
+          </a>
+        ))}
       </div>
     </section>
 
     <section id="experience" class="space-y-6">
-      <h2 class="text-2xl font-semibold text-primary">{t.sections.experience}</h2>
-      <div class="space-y-8 border-t border-theme pt-6">
+      <h2 class="section-rule">01 · {t.sections.experience}</h2>
+      <div class="space-y-8">
         {experience.map(({ company, period, summary, roles }) => (
           <article class="space-y-3">
             <div class="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 class="text-lg font-semibold text-primary">{company}</h3>
-              <span class="text-sm text-subtle">{period}</span>
+              <h3 class="text-lg font-semibold text-bright">{company}</h3>
+              <span class="tabular text-sm text-faint">{period}</span>
             </div>
             <div class="flex flex-wrap gap-2">
               {roles.map(({ title, period: rolePeriod }) => (
-                <span class="rounded-full border border-theme-15 bg-surface px-3 py-1 text-xs text-muted">
-                  {title} · {rolePeriod}
-                </span>
+                <span class="tag">{title} · {rolePeriod}</span>
               ))}
             </div>
-            <p class="text-muted">{summary}</p>
+            <p class="text-muted-75 leading-relaxed">{summary}</p>
           </article>
         ))}
       </div>
     </section>
 
     <section id="projects" class="space-y-6">
-      <div class="flex items-baseline justify-between gap-2">
-        <h2 class="text-2xl font-semibold text-primary">{t.sections.projects}</h2>
-        <span class="text-sm text-subtle">{t.projects.selectedWork}</span>
-      </div>
-      <div class="space-y-6 border-t border-theme pt-6">
+      <h2 class="section-rule">02 · {t.sections.projects}</h2>
+      <div class="grid gap-6 sm:grid-cols-2">
         {projects.map(({ name, description, link }) => (
-          <article class="space-y-2">
-            <div class="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 class="text-lg font-semibold text-primary">{name}</h3>
-              <a
-                href={link}
-                class="text-sm underline decoration-theme underline-offset-4 transition hover:decoration-theme"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t.projects.openLink}
-              </a>
-            </div>
-            <p class="text-muted-75">{description}</p>
+          <article class="frame space-y-2" data-label={t.projects.selectedWork}>
+            <h3 class="text-lg font-semibold text-bright">{name}</h3>
+            <p class="text-sm text-muted-75 leading-relaxed">{description}</p>
+            <a
+              href={link}
+              class="arrow-link text-sm inline-flex items-center gap-1 pt-1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              » {t.projects.openLink}
+            </a>
           </article>
         ))}
       </div>
     </section>
 
     <section id="skills" class="space-y-4">
-      <h2 class="text-2xl font-semibold text-primary">{t.sections.skills}</h2>
-      <div class="border-t border-theme pt-4">
-        <ul class="flex flex-wrap gap-3">
-          {skills.map((skill) => (
-            <li class="rounded-full border border-theme-15 bg-surface px-4 py-2 text-sm text-muted">{skill}</li>
-          ))}
-        </ul>
-      </div>
+      <h2 class="section-rule">03 · {t.sections.skills}</h2>
+      <p class="text-base leading-loose text-muted-75">
+        {skills.map((skill, i) => (
+          <>
+            <span class="text-primary">{skill}</span>
+            {i < skills.length - 1 && <span class="text-faint px-2">·</span>}
+          </>
+        ))}
+      </p>
     </section>
 
-    <section id="certifications" class="space-y-4">
-      <h2 class="text-2xl font-semibold text-primary">{t.sections.certifications}</h2>
-      <div class="space-y-4 border-t border-theme pt-4">
+    <section id="certifications" class="space-y-6">
+      <h2 class="section-rule">04 · {t.sections.certifications}</h2>
+      <div class="space-y-4">
         {certifications.map(({ title, issuer, description, credentialUrl }) => (
-          <article class="space-y-2">
-            <div class="space-y-1">
-              <h3 class="text-lg font-semibold text-primary">{title}</h3>
-              <p class="text-sm text-subtle">{issuer}</p>
+          <article class="frame space-y-2" data-label="credential">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-lg font-semibold text-bright">{title}</h3>
+              <span class="text-sm text-faint">{issuer}</span>
             </div>
-            <p class="text-sm text-muted-70">{description}</p>
+            <p class="text-sm text-muted-75 leading-relaxed">{description}</p>
             <a
               href={credentialUrl}
-              class="text-sm underline decoration-theme underline-offset-4 transition hover:decoration-theme"
+              class="arrow-link text-sm inline-flex items-center gap-1 pt-1"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t.certifications.credentialLink}
+              » {t.certifications.credentialLink}
             </a>
           </article>
         ))}
@@ -161,22 +164,30 @@ const copyright = t.footer.copyright.replace('{year}', currentYear.toString());
     </section>
 
     <section id="education" class="space-y-4">
-      <h2 class="text-2xl font-semibold text-primary">{t.sections.education}</h2>
-      <div class="space-y-6 border-t border-theme pt-4">
+      <h2 class="section-rule">05 · {t.sections.education}</h2>
+      <ul class="divide-y divide-[color:var(--color-rule)]">
         {education.map(({ degree, institution, period }) => (
-          <article class="space-y-1">
-            <div class="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 class="text-lg font-semibold text-primary">{degree}</h3>
-              <span class="text-sm text-subtle">{period}</span>
+          <li class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 py-3">
+            <div>
+              <h3 class="text-base font-semibold text-bright">{degree}</h3>
+              <p class="text-sm text-muted-75">{institution}</p>
             </div>
-            <p class="text-muted text-sm">{institution}</p>
-          </article>
+            <span class="tabular text-sm text-faint">{period}</span>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
 
-    <footer class="pb-8 text-xs text-faint">
-      {copyright}
+    <footer class="pt-6 pb-10 space-y-3">
+      <div class="section-rule">{t.footer.eof}</div>
+      <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs text-faint">
+        <span>{copyright}</span>
+        <span class="text-faint">·</span>
+        <span class="tabular">{t.footer.uptimeLabel} {uptime}</span>
+        <span class="text-faint">·</span>
+        <span class="text-subtle">&gt;<span class="caret" aria-hidden="true"></span></span>
+      </div>
     </footer>
+
   </main>
 </BaseLayout>

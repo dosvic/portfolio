@@ -1,0 +1,131 @@
+---
+import { translations, type Language } from '../i18n/translations';
+
+interface Props {
+  currentLang: Language;
+}
+
+const { currentLang } = Astro.props;
+const t = translations[currentLang];
+
+const today = new Date();
+const iso = today.toISOString().slice(0, 10);
+---
+
+<header class="terminal-header" aria-label={t.nav.system}>
+  <div class="term-row">
+    <span class="term-sys">{t.nav.system}</span>
+    <span class="term-sep">·</span>
+    <span class="term-loc">{t.nav.location}</span>
+    <span class="term-sep">·</span>
+    <span class="term-date tabular">{iso}</span>
+  </div>
+  <nav class="term-nav" aria-label="language">
+    <span class="term-lang-label">{t.nav.lang}:</span>
+    <a
+      href="/en/"
+      class:list={["term-lang", { active: currentLang === 'en' }]}
+      aria-current={currentLang === 'en' ? 'page' : undefined}
+      data-lang="en"
+    >EN</a>
+    <span class="term-sep">·</span>
+    <a
+      href="/de/"
+      class:list={["term-lang", { active: currentLang === 'de' }]}
+      aria-current={currentLang === 'de' ? 'page' : undefined}
+      data-lang="de"
+    >DE</a>
+  </nav>
+</header>
+
+<style>
+  .terminal-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid var(--color-rule);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+  }
+
+  @media (min-width: 640px) {
+    .terminal-header {
+      padding: 0.75rem 2rem;
+    }
+  }
+
+  .term-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .term-sys {
+    color: var(--color-text);
+  }
+
+  .term-sep {
+    color: var(--color-text-faint);
+  }
+
+  .term-nav {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+
+  .term-lang-label {
+    color: var(--color-text-faint);
+  }
+
+  .term-lang {
+    color: var(--color-text-faint);
+    text-decoration: none;
+    transition: color 80ms linear;
+    position: relative;
+    padding: 0 0.15rem;
+  }
+
+  .term-lang:hover,
+  .term-lang:focus-visible {
+    color: var(--color-text);
+    outline: none;
+  }
+
+  .term-lang.active {
+    color: var(--color-text-bright);
+  }
+
+  .term-lang.active::before {
+    content: "[";
+    color: var(--color-text-dim);
+    margin-right: 0.1rem;
+  }
+
+  .term-lang.active::after {
+    content: "]";
+    color: var(--color-text-dim);
+    margin-left: 0.1rem;
+  }
+</style>
+
+<script>
+  function initLangPersist() {
+    const links = document.querySelectorAll<HTMLAnchorElement>('.term-lang');
+    links.forEach((link) => {
+      link.addEventListener('click', () => {
+        const lang = link.getAttribute('data-lang');
+        if (lang) localStorage.setItem('preferredLang', lang);
+      });
+    });
+  }
+
+  initLangPersist();
+  document.addEventListener('astro:page-load', initLangPersist);
+</script>
