@@ -7,7 +7,7 @@ Personal portfolio built with [Astro](https://astro.build) and [Tailwind CSS](ht
 Install dependencies:
 
 ```sh
-npm install
+npm ci
 ```
 
 Start the local dev server:
@@ -22,6 +22,12 @@ Build the site for production:
 npm run build
 ```
 
+Remove generated build and tool state:
+
+```sh
+npm run clean
+```
+
 Serve the production build locally:
 
 ```sh
@@ -30,16 +36,15 @@ npm run preview
 
 ## Cloudflare Workers
 
-Run the Cloudflare Workers dev server (requires build first):
+Run the Cloudflare Workers dev server:
 
 ```sh
-npm ci && npm run build
-wrangler dev
+npm run preview:wrangler
 ```
 
-Deploy to Cloudflare Workers (requires build first):
+Deploy to Cloudflare Workers:
 
 ```sh
 npm ci && npm run build
-wrangler deploy
+npm run deploy 
 ```

@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "clean": "rm -rf dist .astro .wrangler",
     "preview": "astro preview",
-    "astro": "astro"
+    "preview:wrangler": "wrangler dev",
+    "astro": "astro",
+    "deploy": "wrangler deploy" 
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
@@ -14,5 +17,8 @@
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.14.1",
     "tailwindcss": "^4.1.13"
+  },
+  "devDependencies": {
+    "wrangler": "^4.83.0"
   }
 }
