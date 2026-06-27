@@ -1,12 +1,19 @@
 [
   {
     "company": "PaysafeCard",
-    "period": "2021 — Heute",
-    "summary": "Bei Paysafecard entwickle und pflege ich die Zahlungsinfrastruktur, einschließlich REST- und SOAP-APIs für Partner, die täglich Millionen von Transaktionen mit hoher Verfügbarkeit verarbeiten. Zusätzlich arbeite ich Fullstack an B2C Online-Shops für den Kauf von Paysafecards und Geschenkkarten.",
+    "period": "2021 — 2026",
+    "summary": "Verantwortung für die fachliche und technische Weiterentwicklung zentraler Checkout-, Payment- und Plattformfunktionalitäten.",
+    "highlights": [
+      "Implementierung eines One-Click-Checkouts zur Reduzierung von Reibung im Bezahlprozess und Verbesserung des Nutzererlebnisses.",
+      "Optimierung von Refund-Abläufen zur Erhöhung der operativen Flexibilität und Unterstützung von Serviceprozessen.",
+      "Fachliche und technische Erweiterung eines digitalen Gutschein-Marktplatzes zur Integration von Drittanbieter-Produkten.",
+      "Ausbau lokaler Zahlungsmethoden zur Verbesserung der Conversion in länderspezifischen Checkout-Prozessen.",
+      "Integration eines zusätzlichen KYC-Anbieters in bestehende Identitätsprüfungsprozesse."
+    ],
     "roles": [
       {
         "title": "Software Entwickler",
-        "period": "2024 — Heute"
+        "period": "2024 — 2026"
       },
       {
         "title": "Junior Software Entwickler",

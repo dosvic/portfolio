@@ -2,7 +2,7 @@ export const translations = {
   en: {
     hero: {
       subtitle: 'software engineer · vienna',
-      bio: 'Fintech full-stack engineer with experience across KYC, payments, and digital storefronts. I currently ship production work with Jakarta EE, Oracle/Postgres, Angular, Kafka, and AWS.',
+      bio: 'Software engineer with 5+ years of experience building scalable applications, customer-facing platform capabilities, and payment and checkout processes.',
       prompt: 'whoami',
       linksPrompt: 'links',
     },
@@ -41,7 +41,7 @@ export const translations = {
   de: {
     hero: {
       subtitle: 'software entwickler · wien',
-      bio: 'Fintech Full-Stack Entwickler mit Erfahrung in KYC, Zahlungsabwicklung und E-Commerce. Ich entwickle derzeit Produktionslösungen mit Jakarta EE, Oracle/Postgres, Angular, Kafka und AWS.',
+      bio: 'Softwareentwickler mit über 5 Jahren Erfahrung in der Entwicklung skalierbarer Anwendungen, kundenorientierter Plattformfunktionen sowie Payment- und Checkout-Prozesse.',
       prompt: 'whoami',
       linksPrompt: 'links',
     },

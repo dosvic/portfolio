@@ -6,6 +6,7 @@ const experienceCollection = defineCollection({
     company: z.string(),
     period: z.string(),
     summary: z.string(),
+    highlights: z.array(z.string()).optional(),
     roles: z.array(z.object({
       title: z.string(),
       period: z.string(),

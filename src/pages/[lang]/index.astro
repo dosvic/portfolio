@@ -27,18 +27,17 @@ const socials = [
 ];
 
 const skills = [
+  'Java',
   'JavaScript',
   'TypeScript',
-  'Angular',
-  'Astro',
-  'Node.js',
-  'SQL',
-  'Java',
+  'Python',
   'Jakarta EE',
   'Spring Boot',
-  'Python',
+  'Angular',
   'AWS',
   'Kubernetes',
+  'Kafka',
+  'SQL',
   'GitLab CI/CD',
   'Jenkins'
 ];
@@ -91,7 +90,7 @@ const uptime = `${uptimeYears}y ${uptimeMonths}m`;
     <section id="experience" class="space-y-6">
       <h2 class="section-rule">01 · {t.sections.experience}</h2>
       <div class="space-y-8">
-        {experience.map(({ company, period, summary, roles }) => (
+        {experience.map(({ company, period, summary, highlights, roles }) => (
           <article class="space-y-3">
             <div class="flex flex-wrap items-baseline justify-between gap-2">
               <h3 class="text-lg font-semibold text-bright">{company}</h3>
@@ -103,6 +102,16 @@ const uptime = `${uptimeYears}y ${uptimeMonths}m`;
               ))}
             </div>
             <p class="text-muted-75 leading-relaxed">{summary}</p>
+            {highlights && highlights.length > 0 && (
+              <ul class="space-y-2 pt-1 text-sm leading-relaxed text-muted-75">
+                {highlights.map((highlight) => (
+                  <li class="flex gap-2">
+                    <span class="text-faint" aria-hidden="true">»</span>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </article>
         ))}
       </div>

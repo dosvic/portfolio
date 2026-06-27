@@ -1,12 +1,19 @@
 [
   {
     "company": "PaysafeCard",
-    "period": "2021 — Present",
-    "summary": "At Paysafecard, I build and maintain payments infrastructure, including merchant-facing REST and SOAP APIs that process millions of transactions daily with high availability. I also work full stack on customer-facing online shops for purchasing paysafecards and gift cards.",
+    "period": "2021 — 2026",
+    "summary": "Responsible for the functional and technical evolution of core checkout, payment, and platform capabilities.",
+    "highlights": [
+      "Implemented a one-click checkout to reduce friction in the payment flow and improve the user experience.",
+      "Improved refund handling to increase operational flexibility and support customer service workflows.",
+      "Extended a digital voucher marketplace functionally and technically to integrate third-party products.",
+      "Expanded local payment methods to improve conversion in country-specific checkout flows.",
+      "Integrated an additional KYC provider into existing identity verification processes."
+    ],
     "roles": [
       {
         "title": "Software Engineer",
-        "period": "2024 — Present"
+        "period": "2024 — 2026"
       },
       {
         "title": "Junior Software Engineer",
