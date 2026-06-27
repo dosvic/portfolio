@@ -12,12 +12,10 @@ const { lang } = Astro.params;
 const t = translations[lang as Language];
 
 const experienceEntry = await getEntry('experience', lang as Language);
-const projectsEntry = await getEntry('projects', lang as Language);
 const certificationsEntry = await getEntry('certifications', lang as Language);
 const educationEntry = await getEntry('education', lang as Language);
 
 const experience = experienceEntry?.data ?? [];
-const projects = projectsEntry?.data ?? [];
 const certifications = certificationsEntry?.data ?? [];
 const education = educationEntry?.data ?? [];
 
@@ -117,28 +115,8 @@ const uptime = `${uptimeYears}y ${uptimeMonths}m`;
       </div>
     </section>
 
-    <section id="projects" class="space-y-6">
-      <h2 class="section-rule">02 · {t.sections.projects}</h2>
-      <div class="grid gap-6 sm:grid-cols-2">
-        {projects.map(({ name, description, link }) => (
-          <article class="frame space-y-2" data-label={t.projects.selectedWork}>
-            <h3 class="text-lg font-semibold text-bright">{name}</h3>
-            <p class="text-sm text-muted-75 leading-relaxed">{description}</p>
-            <a
-              href={link}
-              class="arrow-link text-sm inline-flex items-center gap-1 pt-1"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              » {t.projects.openLink}
-            </a>
-          </article>
-        ))}
-      </div>
-    </section>
-
     <section id="skills" class="space-y-4">
-      <h2 class="section-rule">03 · {t.sections.skills}</h2>
+      <h2 class="section-rule">02 · {t.sections.skills}</h2>
       <p class="text-base leading-loose text-muted-75">
         {skills.map((skill, i) => (
           <>
@@ -150,7 +128,7 @@ const uptime = `${uptimeYears}y ${uptimeMonths}m`;
     </section>
 
     <section id="certifications" class="space-y-6">
-      <h2 class="section-rule">04 · {t.sections.certifications}</h2>
+      <h2 class="section-rule">03 · {t.sections.certifications}</h2>
       <div class="space-y-4">
         {certifications.map(({ title, issuer, description, credentialUrl }) => (
           <article class="frame space-y-2" data-label="credential">
@@ -173,7 +151,7 @@ const uptime = `${uptimeYears}y ${uptimeMonths}m`;
     </section>
 
     <section id="education" class="space-y-4">
-      <h2 class="section-rule">05 · {t.sections.education}</h2>
+      <h2 class="section-rule">04 · {t.sections.education}</h2>
       <ul class="divide-y divide-[color:var(--color-rule)]">
         {education.map(({ degree, institution, period }) => (
           <li class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 py-3">

@@ -15,14 +15,9 @@ export const translations = {
     },
     sections: {
       experience: 'Experience',
-      projects: 'Projects',
       skills: 'Skills',
       certifications: 'Certifications',
       education: 'Education',
-    },
-    projects: {
-      selectedWork: 'selected work',
-      openLink: 'open',
     },
     certifications: {
       credentialLink: 'credential',
@@ -54,14 +49,9 @@ export const translations = {
     },
     sections: {
       experience: 'Berufserfahrung',
-      projects: 'Projekte',
       skills: 'Skills',
       certifications: 'Zertifizierungen',
       education: 'Ausbildung',
-    },
-    projects: {
-      selectedWork: 'ausgewählte arbeiten',
-      openLink: 'öffnen',
     },
     certifications: {
       credentialLink: 'zertifikat',
