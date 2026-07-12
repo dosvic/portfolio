@@ -1,57 +1,41 @@
-# Security headers for all pages
+# Security headers for static asset responses
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: same-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
-  X-XSS-Protection: 1; mode=block
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin
+  Content-Security-Policy: default-src 'none'; base-uri 'none'; connect-src 'none'; font-src 'self'; form-action 'none'; frame-ancestors 'none'; frame-src 'none'; img-src 'self'; object-src 'none'; script-src 'self' 'sha256-NI6oIC7r5nnULSOQiUB025GmWyKZfFXfhgcRQsPWPKM='; style-src 'self'; upgrade-insecure-requests
 
-# Cache control for HTML pages (short cache)
+# HTML is always revalidated so content updates appear immediately
 /index.html
-  Cache-Control: public, max-age=300, must-revalidate
+  Cache-Control: public, max-age=0, must-revalidate
 
-/*/index.html
-  Cache-Control: public, max-age=300, must-revalidate
+/en/*
+  Cache-Control: public, max-age=0, must-revalidate
 
-# Aggressive caching for versioned assets
-/_astro/*
+/de/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Stable CSS and JavaScript names are revalidated
+/assets/css/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/js/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Vendored font files are immutable
+/assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Static assets
-/*.css
-  Cache-Control: public, max-age=31536000, immutable
+# Site metadata and icon
+/favicon.svg
+  Cache-Control: public, max-age=86400, must-revalidate
 
-/*.js
-  Cache-Control: public, max-age=31536000, immutable
+/robots.txt
+  Cache-Control: public, max-age=3600, must-revalidate
 
-/*.woff2
-  Cache-Control: public, max-age=31536000, immutable
-
-/*.woff
-  Cache-Control: public, max-age=31536000, immutable
-
-# Images
-/*.jpg
-  Cache-Control: public, max-age=2592000
-
-/*.jpeg
-  Cache-Control: public, max-age=2592000
-
-/*.png
-  Cache-Control: public, max-age=2592000
-
-/*.gif
-  Cache-Control: public, max-age=2592000
-
-/*.svg
-  Cache-Control: public, max-age=2592000
-
-/*.webp
-  Cache-Control: public, max-age=2592000
-
-# Content Security Policy
-/*
-  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-vH6jRmYgYRPASL4DAgJbErw83xqZXzlN8eb0TOnhwcY=' 'sha256-4LWE/aofzSVnFnhxnGejwA+wrOAFUydh81RknVw3WEQ=' 'sha256-D4tRdcwqGKVOiXqFLMJoPwVa4IKvx/gKclIEatHY7cs='; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+/sitemap.xml
+  Cache-Control: public, max-age=3600, must-revalidate

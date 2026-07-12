@@ -1,50 +1,36 @@
 # Portfolio
 
-Personal portfolio built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com), deployed on [Cloudflare Workers](https://workers.cloudflare.com). The site highlights featured work, capabilities, and ways to get in touch.
+Dependency-free personal portfolio built with static HTML, CSS, and JavaScript. The deployable site lives in `public/` and is served directly through Cloudflare Static Assets without Worker code.
 
-## Getting Started
+## Edit and preview
 
-Install dependencies:
+Edit the checked-in files directly. There is no package installation or build step.
 
-```sh
-npm ci
-```
-
-Start the local dev server:
+Serve the site locally with Python's standard library:
 
 ```sh
-npm run dev
+python3 -m http.server 8000 --directory public
 ```
 
-Build the site for production:
+Then open [http://localhost:8000/en/](http://localhost:8000/en/) or [http://localhost:8000/de/](http://localhost:8000/de/).
+
+The local static server does not emulate Cloudflare `_redirects` or `_headers` behavior.
+
+## Verify
+
+After a deployment, verify the live redirects, headers, content types, and cache policies:
 
 ```sh
-npm run build
+bash scripts/verify_deployment.sh https://denizosmanovic.com
 ```
 
-Remove generated build and tool state:
+## Routing
 
-```sh
-npm run clean
-```
+- `/` permanently redirects to `/en/`.
+- `/index.html`, `/en/index.html`, and `/de/index.html` permanently redirect to their canonical language URLs.
+- Valid files are served directly from `public/` without invoking Worker code.
+- Unmatched paths return Cloudflare's generic `404`; no custom error page or Worker code executes.
 
-Serve the production build locally:
+## Deployment
 
-```sh
-npm run preview
-```
-
-## Cloudflare Workers
-
-Run the Cloudflare Workers dev server:
-
-```sh
-npm run preview:wrangler
-```
-
-Deploy to Cloudflare Workers:
-
-```sh
-npm ci && npm run build
-npm run deploy 
-```
+Pushes to `main` deploy `public/` to Cloudflare Static Assets, then test the live deployment. The repository has no Worker code, application dependencies, dependency lockfile, or build output.

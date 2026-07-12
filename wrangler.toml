@@ -1,9 +1,6 @@
 name = "denizosmanovic-com"
-compatibility_date = "2025-01-01"
+compatibility_date = "2026-04-22"
 
-# Static assets configuration
 [assets]
-directory = "./dist"
-
-# SPA routing - return index.html for unmatched routes
-not_found_handling = "single-page-application"
+directory = "./public"
+html_handling = "auto-trailing-slash"

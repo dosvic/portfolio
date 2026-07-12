@@ -1,2 +1,7 @@
 # Root to default language redirect
 /  /en/  301
+
+# Canonicalize index aliases
+/index.html     /en/  301
+/en/index.html  /en/  301
+/de/index.html  /de/  301
